@@ -26,37 +26,37 @@ const encouragements = [
     document.getElementById('encouragement10')
 ];
 
-// ข้อความปลอบใจภาษาไทย
 const encouragementTexts = [
-    "กาก1",
-    "กาก2",
-    "กาก3",
-    "กาก4",
-    "กาก5",
-    "กาก6"
+    "ไม่เป็นไรนะ สู้ต่อไป",
+    "ทุกอย่างจะดีขึ้นเอง",
+    "เธอเก่งมากแล้ว",
+    "อย่าท้อ เดี๋ยวมันก็ผ่านไป",
+    "วันนี้แย่ แต่พรุ่งนี้ดีแน่",
+    "เธอไม่ได้อยู่คนเดียวนะ",
+    "ใจเย็น ๆ ทุกอย่างมีทางออก"
 ];
 
-// Playlist array with YouTube video IDs
 const playlist = [
-    {
-        title: "เธอไม่ได้อยู่คนเดียว",
-        artist: "Tilly Birds |Lyric Video|",
-        videoId: "_JsAiF6tw6g"
-    },
-    {
-        title: "จีบ", // คุณสามารถเปลี่ยนชื่อเพลงได้ถ้ารู้ชื่อจริง
-        artist: "QLER", // คุณสามารถเปลี่ยนศิลปินได้ถ้ารู้ศิลปินจริง
-        videoId: "GnQZmNf9KCg"
-    }
+    { title: "Song 1", artist: "Unknown", videoId: "Z3uS_azgKyI" },
+    { title: "Song 2", artist: "Unknown", videoId: "iPfEeYmrWXQ" },
+    { title: "Song 3", artist: "Unknown", videoId: "glzDOx3Boos" },
+    { title: "Song 4", artist: "Unknown", videoId: "LY_O5J9USQ8" },
+    { title: "Song 5", artist: "Unknown", videoId: "zy1NQR3y03c" },
+    { title: "Song 6", artist: "Unknown", videoId: "9CTC-ksPe8I" },
+    { title: "Song 7", artist: "Unknown", videoId: "y9ERE2vX94I" },
+    { title: "Song 8", artist: "Unknown", videoId: "BjBXoSX5aQI" },
+    { title: "Song 9", artist: "Unknown", videoId: "hO0R0YTqnow" },
+    { title: "Song 10", artist: "Unknown", videoId: "CSZozBW7xMI" },
+    { title: "Song 11", artist: "Unknown", videoId: "iO8ouMrxFM8" },
+    { title: "Song 12", artist: "Unknown", videoId: "j1DLKT1bksU" }
 ];
 
-// Initialize YouTube IFrame Player API
 function onYouTubeIframeAPIReady() {
     player = new YT.Player('youtubePlayer', {
         events: {
             'onReady': onPlayerReady,
             'onStateChange': onPlayerStateChange,
-            'onError': onPlayerError // เพิ่มการจัดการข้อผิดพลาด
+            'onError': onPlayerError
         }
     });
 }
@@ -79,29 +79,8 @@ function onPlayerStateChange(event) {
     }
 }
 
-// จัดการข้อผิดพลาดเมื่อโหลดวิดีโอไม่ได้
 function onPlayerError(event) {
-    const errorCode = event.data;
-    let errorMessage = "เกิดข้อผิดพลาดในการโหลดวิดีโอ: ";
-    switch (errorCode) {
-        case 2:
-            errorMessage += "Video ID ไม่ถูกต้อง";
-            break;
-        case 5:
-            errorMessage += "HTML5 Player Error";
-            break;
-        case 100:
-            errorMessage += "วิดีโอไม่พบหรือถูกลบ";
-            break;
-        case 101:
-        case 150:
-            errorMessage += "วิดีโอนี้ถูกจำกัดหรือไม่อนุญาตให้ฝัง";
-            break;
-        default:
-            errorMessage += "ไม่ทราบสาเหตุ";
-    }
-    alert(errorMessage);
-    console.log("Error Code:", errorCode);
+    alert("เกิดข้อผิดพลาดในการโหลดวิดีโอ: " + event.data);
 }
 
 function loadSong(index) {
@@ -204,7 +183,6 @@ function stopEncouragementLoop() {
     encouragements.forEach(el => el.classList.remove('active', 'heart', 'text'));
 }
 
-// Event Listeners
 playPauseBtn.addEventListener('click', playPause);
 prevBtn.addEventListener('click', prevSong);
 nextBtn.addEventListener('click', nextSong);
@@ -221,5 +199,4 @@ volumeBar.addEventListener('input', () => {
 volumeDown.addEventListener('click', () => adjustVolume(-10));
 volumeUp.addEventListener('click', () => adjustVolume(10));
 
-// Load first song on page load
 loadSong(currentSongIndex);
