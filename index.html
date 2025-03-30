@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>By ม่วง</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="player-container">
+        <div class="album-art">
+            <iframe id="youtubePlayer" width="300" height="200" src="https://www.youtube.com/embed/_JsAiF6tw6g?enablejsapi=1" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+        
+        <div class="player-controls">
+            <h2 id="songTitle">A Gentle Song</h2>
+            <p id="artist">Unknown Artist</p>
+            
+            <div class="progress-container">
+                <span id="currentTime">0:00</span>
+                <input type="range" id="progressBar" value="0" min="0" max="100">
+                <span id="duration">0:00</span>
+            </div>
+            
+            <div class="control-buttons">
+                <button id="playPauseBtn">เล่น</button>
+                <button id="prevBtn">ก่อนหน้า</button>
+                <button id="nextBtn">ถัดไป</button>
+            </div>
+            
+            <div class="volume-control">
+                <button id="volumeDown">ลดเสียง</button>
+                <input type="range" id="volumeBar" value="100" min="0" max="100">
+                <button id="volumeUp">เพิ่มเสียง</button>
+            </div>
+        </div>
+    </div>
+    
+    <div id="encouragement1" class="encouragement-heart"></div>
+    <div id="encouragement2" class="encouragement-heart"></div>
+    <div id="encouragement3" class="encouragement-heart"></div>
+    <div id="encouragement4" class="encouragement-heart"></div>
+    <div id="encouragement5" class="encouragement-heart"></div>
+    <div id="encouragement6" class="encouragement-heart"></div>
+    <div id="encouragement7" class="encouragement-heart"></div>
+    <div id="encouragement8" class="encouragement-heart"></div>
+    <div id="encouragement9" class="encouragement-heart"></div>
+    <div id="encouragement10" class="encouragement-heart"></div>
+    
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="script.js"></script>
+</body>
+</html>
